@@ -51,7 +51,10 @@ func Execute() {
 
 	for _, room := range rooms {
 
-		var allpresent = true
+		// part 1
+		// var allpresent = true
+
+		var anyPresent = false
 
 		if len(room.pair1) > len(room.pair2) {
 			var tempMap = make(map[int]int)
@@ -70,8 +73,8 @@ func Execute() {
 			//}
 
 			// part 2
-			if len(tempMap) == 0 {
-				allpresent = false
+			if len(tempMap) > 0 {
+				anyPresent = true
 			}
 
 		} else {
@@ -91,12 +94,12 @@ func Execute() {
 			//}
 
 			// part 2
-			if len(tempMap) == 0 {
-				allpresent = false
+			if len(tempMap) > 0 {
+				anyPresent = true
 			}
 		}
 
-		if allpresent {
+		if anyPresent {
 			fullyContainCount++
 		}
 
