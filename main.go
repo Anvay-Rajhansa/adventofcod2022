@@ -1,9 +1,9 @@
 package main
 
 import (
-	"adventofcod2022/day4"
+	"adventofcod2022/day5"
 )
 
 func main() {
-	day4.Execute()
+	day5.Execute()
 }
