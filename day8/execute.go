@@ -26,59 +26,67 @@ func Execute() {
 		matrix = append(matrix, matrixi)
 	}
 
-	var visibalCount = (len(matrix) * 4) - 4
+	var maxVisibleScore = 0
 	for i := 1; i < len(matrix) - 1; i++ {
 		for j := 1; j < len(matrix)-1; j++ {
 			val := matrix[i][j]
-			var topVisible = true
-			for top := 0; top < i; top++ {
+			var topVisibleScore = 0
+			for top := i-1; top >= 0; top-- {
 				if matrix[top][j] >= val {
-					topVisible = false
+					topVisibleScore++
 					break
 				}
-			}
-			if topVisible {
-				visibalCount++
-				continue
+				//if matrix[top][j] == val {
+				//	topVisibleScore++
+				//	break
+				//}
+				topVisibleScore++
 			}
 
-			var rightVisible = true
+			var rightVisibleScore = 0
 			for right := j+1; right < len(matrix); right++ {
 				if matrix[i][right] >= val {
-					rightVisible = false
+					rightVisibleScore++
 					break
 				}
-			}
-			if rightVisible {
-				visibalCount++
-				continue
+				//if matrix[i][right] == val {
+				//	rightVisibleScore++
+				//	break
+				//}
+				rightVisibleScore++
 			}
 
-			var bottomVisible = true
+			var bottomVisibleScore = 0
 			for bottom := i+1; bottom < len(matrix); bottom++ {
 				if matrix[bottom][j] >= val {
-					bottomVisible = false
+					bottomVisibleScore++
 					break
 				}
-			}
-			if bottomVisible {
-				visibalCount++
-				continue
+				//if matrix[bottom][j] == val {
+				//	bottomVisibleScore++
+				//	break
+				//}
+				bottomVisibleScore++
 			}
 
-			var leftVisible = true
-			for left := 0; left < j; left++ {
+			var leftVisibleScore = 0
+			for left := j-1; left >= 0; left-- {
 				if matrix[i][left] >= val {
-					leftVisible = false
+					leftVisibleScore++
 					break
 				}
+				//if matrix[i][left] == val {
+				//	leftVisibleScore++
+				//	break
+				//}
+				leftVisibleScore++
 			}
-			if leftVisible {
-				visibalCount++
-				continue
+
+			if (topVisibleScore * rightVisibleScore * bottomVisibleScore * leftVisibleScore) > maxVisibleScore {
+				maxVisibleScore = topVisibleScore * rightVisibleScore * bottomVisibleScore * leftVisibleScore
 			}
 		}
 	}
 
-	println("visible count : ", visibalCount)
+	println("visible count : ", maxVisibleScore)
 }
