@@ -36,10 +36,6 @@ func Execute() {
 					topVisibleScore++
 					break
 				}
-				//if matrix[top][j] == val {
-				//	topVisibleScore++
-				//	break
-				//}
 				topVisibleScore++
 			}
 
@@ -49,10 +45,6 @@ func Execute() {
 					rightVisibleScore++
 					break
 				}
-				//if matrix[i][right] == val {
-				//	rightVisibleScore++
-				//	break
-				//}
 				rightVisibleScore++
 			}
 
@@ -62,10 +54,6 @@ func Execute() {
 					bottomVisibleScore++
 					break
 				}
-				//if matrix[bottom][j] == val {
-				//	bottomVisibleScore++
-				//	break
-				//}
 				bottomVisibleScore++
 			}
 
@@ -75,10 +63,6 @@ func Execute() {
 					leftVisibleScore++
 					break
 				}
-				//if matrix[i][left] == val {
-				//	leftVisibleScore++
-				//	break
-				//}
 				leftVisibleScore++
 			}
 
